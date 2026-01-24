@@ -1,0 +1,406 @@
+/* App.css - Ana uygulama bileşeni için özel stiller */
+
+.App {
+  min-height: 100vh;
+}
+
+/* Ana Layout - Sidebar ve içerik alanını yan yana yerleştirir */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  /* display: flex: Flexbox düzeni */
+  /* min-height: 100vh: Minimum yükseklik ekran yüksekliği kadar */
+}
+
+/* Ana İçerik Alanı - Sidebar'ın yanında */
+.main-content {
+  flex: 1;
+  /* flex: 1: Kalan alanı kapla */
+  margin-left: 280px;
+  /* margin-left: Sidebar genişliği kadar sol boşluk */
+  padding: 30px;
+  /* padding: İçerik boşluğu */
+  background: #f5f7fa;
+  /* Arka plan rengi */
+  transition: margin-left 0.3s ease;
+  /* transition: Animasyon efekti */
+}
+
+/* Mobil cihazlarda içerik alanını tam genişlik yap */
+@media (max-width: 767.98px) {
+  .main-content {
+    margin-left: 0;
+    /* margin-left: 0: Sol boşluk yok */
+    padding: 20px 15px;
+    /* padding: Daha az boşluk */
+  }
+}
+
+/* İçerik Başlığı */
+.content-header {
+  background: white;
+  /* Beyaz arka plan */
+  padding: 25px 30px;
+  /* padding: İç boşluk */
+  border-radius: 12px;
+  /* border-radius: Yuvarlatılmış köşeler */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* box-shadow: Hafif gölge efekti */
+  margin-bottom: 25px;
+  /* margin-bottom: Alt boşluk */
+}
+
+/* Sayfa Başlığı */
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0;
+  /* font-size: Başlık boyutu */
+  /* font-weight: 700: Kalın yazı */
+  /* color: Koyu renk */
+}
+
+/* Sayfa Alt Başlığı */
+.page-subtitle {
+  font-size: 14px;
+  color: #718096;
+  /* font-size: Alt başlık boyutu */
+  /* color: Açık gri renk */
+}
+
+/* Header Badge */
+.header-badge {
+  display: flex;
+  align-items: center;
+}
+
+/* İstatistikler Container */
+.stats-container {
+  margin-bottom: 25px;
+}
+
+/* İstatistik Kartı */
+.stat-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* transition: Hover animasyonu */
+  border-top: 4px solid;
+  /* border-top: Üst kenarlık */
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  /* transform: Yukarı kaydır */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  /* box-shadow: Daha belirgin gölge */
+}
+
+/* İstatistik Kartı Renkleri */
+.stat-card-primary {
+  border-top-color: #3b82f6;
+  /* Mavi kenarlık */
+}
+
+.stat-card-success {
+  border-top-color: #10b981;
+  /* Yeşil kenarlık */
+}
+
+.stat-card-warning {
+  border-top-color: #f59e0b;
+  /* Turuncu kenarlık */
+}
+
+.stat-card-info {
+  border-top-color: #06b6d4;
+  /* Cyan kenarlık */
+}
+
+/* İstatistik İkon */
+.stat-icon {
+  font-size: 32px;
+  margin-bottom: 15px;
+  /* font-size: İkon boyutu */
+  /* margin-bottom: Alt boşluk */
+}
+
+.stat-card-primary .stat-icon {
+  color: #3b82f6;
+  /* Mavi ikon */
+}
+
+.stat-card-success .stat-icon {
+  color: #10b981;
+  /* Yeşil ikon */
+}
+
+.stat-card-warning .stat-icon {
+  color: #f59e0b;
+  /* Turuncu ikon */
+}
+
+.stat-card-info .stat-icon {
+  color: #06b6d4;
+  /* Cyan ikon */
+}
+
+/* İstatistik Değeri */
+.stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 8px;
+  /* font-size: Büyük değer */
+  /* font-weight: 700: Kalın yazı */
+}
+
+/* İstatistik Etiketi */
+.stat-label {
+  font-size: 14px;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* font-size: Küçük etiket */
+  /* text-transform: uppercase: Büyük harf */
+  /* letter-spacing: Harf aralığı */
+}
+
+/* Sidebar Stilleri */
+.sidebar {
+  position: fixed;
+  /* position: fixed: Sabit konum */
+  top: 0;
+  left: 0;
+  width: 280px;
+  /* width: Sidebar genişliği */
+  height: 100vh;
+  /* height: Tam yükseklik */
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  /* background: Koyu gradient arka plan */
+  color: white;
+  /* color: Beyaz yazı */
+  z-index: 1000;
+  /* z-index: Diğer elementlerin üstünde */
+  overflow-y: auto;
+  /* overflow-y: auto: Dikey kaydırma */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: Sağ tarafta gölge */
+  transform: translateX(-100%);
+  /* transform: Mobilde başlangıçta gizli */
+  transition: transform 0.3s ease;
+  /* transition: Açılma/kapanma animasyonu */
+}
+
+/* Desktop'ta sidebar her zaman görünür */
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(0);
+    /* transform: Desktop'ta görünür */
+  }
+}
+
+/* Mobilde sidebar açıkken */
+.sidebar-open {
+  transform: translateX(0);
+  /* transform: Açık durumda görünür */
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  padding: 25px 20px;
+  /* padding: İç boşluk */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* border-bottom: Alt kenarlık */
+}
+
+/* Sidebar Logo */
+.sidebar-logo {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  /* background: Gradient arka plan */
+  border-radius: 12px;
+  /* border-radius: Yuvarlatılmış köşeler */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  /* width, height: Logo boyutu */
+  /* display: flex: Flexbox düzeni */
+  /* align-items, justify-content: Ortalama */
+}
+
+/* Sidebar Navigasyon */
+.sidebar-nav {
+  padding: 20px 0;
+  /* padding: Üst-alt boşluk */
+}
+
+/* Sidebar Menü Öğesi */
+.sidebar-item {
+  width: 100%;
+  /* width: Tam genişlik */
+  padding: 15px 20px;
+  /* padding: İç boşluk */
+  background: transparent;
+  /* background: Şeffaf arka plan */
+  border: none;
+  /* border: Kenarlık yok */
+  color: rgba(255, 255, 255, 0.7);
+  /* color: Yarı saydam beyaz */
+  text-align: left;
+  /* text-align: left: Sol hizalama */
+  display: flex;
+  align-items: center;
+  /* display: flex: Flexbox düzeni */
+  /* align-items: center: Dikey ortalama */
+  cursor: pointer;
+  /* cursor: pointer: El işareti */
+  transition: all 0.2s ease;
+  /* transition: Hover animasyonu */
+  position: relative;
+  /* position: relative: Göreceli konum */
+}
+
+/* Sidebar Menü Öğesi Hover */
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  /* background: Hafif beyaz arka plan */
+  color: white;
+  /* color: Tam beyaz */
+}
+
+/* Sidebar Menü Öğesi Aktif */
+.sidebar-item.active {
+  background: rgba(59, 130, 246, 0.2);
+  /* background: Mavi arka plan */
+  color: white;
+  /* color: Beyaz yazı */
+  border-left: 3px solid #3b82f6;
+  /* border-left: Sol mavi kenarlık */
+}
+
+/* Sidebar İkon Container */
+.sidebar-item-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-right: 12px;
+  /* width, height: İkon container boyutu */
+  /* display: flex: Flexbox düzeni */
+}
+
+/* Sidebar İçerik */
+.sidebar-item-content {
+  flex: 1;
+  /* flex: 1: Kalan alanı kapla */
+}
+
+/* Sidebar Başlık */
+.sidebar-item-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  /* font-size: Başlık boyutu */
+  /* font-weight: 600: Yarı kalın */
+}
+
+/* Sidebar Açıklama */
+.sidebar-item-desc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  /* font-size: Küçük yazı */
+  /* color: Daha açık renk */
+}
+
+/* Sidebar Ok İkonu */
+.sidebar-item-arrow {
+  font-size: 14px;
+  margin-left: auto;
+  /* font-size: Ok boyutu */
+  /* margin-left: auto: Sağa it */
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+  position: absolute;
+  /* position: absolute: Mutlak konum */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  /* border-top: Üst kenarlık */
+}
+
+/* Kart Animasyonları */
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: none;
+  /* border: Kenarlık yok */
+  border-radius: 12px;
+  /* border-radius: Yuvarlatılmış köşeler */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* box-shadow: Hafif gölge */
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  /* transform: Yukarı kaydır */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  /* box-shadow: Daha belirgin gölge */
+}
+
+/* Görev Kartı Özel Stilleri */
+.task-item {
+  background: white;
+  border-left: 4px solid #3b82f6;
+  /* border-left: Sol mavi kenarlık */
+  transition: all 0.2s ease;
+  /* transition: Hover animasyonu */
+}
+
+.task-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* box-shadow: Hover'da daha belirgin gölge */
+}
+
+.task-completed {
+  border-left-color: #10b981;
+  /* border-left-color: Tamamlanmış görevler için yeşil kenarlık */
+  background: #f9fafb;
+  /* background: Açık gri arka plan */
+}
+
+.task-completed .card-title {
+  opacity: 0.7;
+  /* opacity: Yarı saydam başlık */
+}
+
+/* Responsive Tasarım */
+@media (max-width: 767.98px) {
+  .page-title {
+    font-size: 24px;
+    /* font-size: Mobilde daha küçük başlık */
+  }
+
+  .content-header {
+    padding: 20px;
+    /* padding: Mobilde daha az boşluk */
+  }
+
+  .task-item .card-body {
+    padding: 20px !important;
+    /* padding: Mobilde daha az boşluk */
+  }
+}
